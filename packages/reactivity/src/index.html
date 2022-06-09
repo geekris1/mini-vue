@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+<script src="../dist/reactivity.global.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.min.js"></script> -->
+
+<script>
+  const { effect, reactive, computed } = VueReactivity;
+  const state = reactive({
+    count: 0,
+    name: "Vue",
+    flag: true,
+  });
+  let compare = computed(() => {
+    console.log(state.count, state.name, "222");
+    return state.count + state.name;
+  });
+  let runner = effect(() => {
+    console.log("更新了嘛", state, compare.value);
+    // state.name = Math.random();
+    let app = document.getElementById("app");
+    app.innerText = compare.value;
+  });
+
+  setTimeout(() => {
+    state.count += 200;
+  }, 2000);
+</script>

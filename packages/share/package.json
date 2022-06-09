@@ -1,0 +1,12 @@
+{
+  "name": "@vue/share",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "dist/share.esm.js",
+  "unpkg": "dist/share.global.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
